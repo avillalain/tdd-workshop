@@ -24,6 +24,12 @@ export const SignUp = () => {
                 <Grid item xs={12}>
                   <TextField label="First name" name="firstname" fullWidth/>
                 </Grid>
+                <Grid item xs={12}>
+                  <TextField label="Last name" name="lastname" fullWidth/>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField label="Email" name="email" fullWidth/>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

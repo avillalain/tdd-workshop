@@ -18,4 +18,18 @@ describe('<SignUp/>', () => {
     expect(field.value).toBe(firstname);
   });
 
+  it('should allow the user to input their last name', () => {
+    const lastname = 'Villalain';
+    const field = screen.getByRole('textbox', {name: /Last Name/i});
+    userEvent.type(field, lastname);
+    expect(field.value).toBe(lastname);
+  });
+
+  it('should allow the user to input their email name', () => {
+    const email = 'some@email.com';
+    const field = screen.getByRole('textbox', {name: /Email/i});
+    userEvent.type(field, email);
+    expect(field.value).toBe(email);
+  });
+
 });
