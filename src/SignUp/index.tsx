@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {useStyle} from '../styles';
 import {Personal} from './Forms/Personal';
 import {Steps} from '../Steps';
+import {Organization} from './Forms/Organization';
 
 export const SignUp = () => {
   const classes = useStyle();
@@ -28,15 +29,7 @@ export const SignUp = () => {
         <Paper className={classes.paper} sx={{height: '50vh'}}>
           <Steps currentStep={currentStep}>
             <Personal/>
-            <Grid container direction="column" justifyItems="center" alignItems="center">
-              <Grid item xs={12}>
-                <Grid container spacing={6} justifyItems="center" alignItems="center">
-                  <Grid item xs={12}>
-                    <TextField label="Organization" name="organization" fullWidth/>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
+            <Organization/>
           </Steps>
         </Paper>
       </Grid>

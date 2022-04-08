@@ -13,7 +13,8 @@ describe('<SignUp/>', () => {
     const firstname = 'Angel';
     const lastname = 'Villalain';
     const email = 'some@email.com';
-    const organization = 'some organization';
+    const organization = 'Thoughtworks';
+    const position = 'Yet another developer';
     let field = screen.getByRole('textbox', {name: /First Name/i});
     userEvent.type(field, firstname);
     expect(field.value).toBe(firstname);
@@ -28,6 +29,9 @@ describe('<SignUp/>', () => {
     field = await screen.findByRole('textbox', {name: /Organization/i});
     userEvent.type(field, organization);
     expect(field.value).toBe(organization);
+    field = await screen.findByRole('textbox', {name: /Position/i});
+    userEvent.type(field, position);
+    expect(field.value).toBe(position);
   });
 
 });
