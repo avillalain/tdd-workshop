@@ -9,7 +9,7 @@ describe('<SignUp/>', () => {
     render(<SignUp />);
   });
 
-  it('should allow the user to input the user organization', async () => {
+  it('should allow the user to input the user first name, last name, email, organization and position', async () => {
     const firstname = 'Angel';
     const lastname = 'Villalain';
     const email = 'some@email.com';
@@ -33,5 +33,19 @@ describe('<SignUp/>', () => {
     userEvent.type(field, position);
     expect(field.value).toBe(position);
   });
+
+  it('should allow the user to go back to the personal details form after going to organization form', async () => {
+    let button = screen.getByRole('button', {name: /Next/i});
+    userEvent.click(button);
+    button = await screen.findByRole('button', {name: /Back/i});
+    await userEvent.click(button);
+    let field = await screen.findByRole('textbox', {name: /First Name/i});
+    expect(field).toBeInTheDocument();
+  });
+
+  it('should not display the back button when on the personal details form', () => {
+    let button = screen.queryByRole('button', {name: /Back/i});
+    expect(button).not.toBeInTheDocument();
+  })
 
 });

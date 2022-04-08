@@ -20,6 +20,9 @@ export const SignUp = () => {
           </Box>
           <Box sx={{justifyContent: "flex-end"}} >
             <Stack sx={{float: 'right'}} direction="row" spacing={2}>
+              {currentStep !== 0 && (
+                <Button sx={{float: 'right'}} onClick={() => setCurrentStep(currentStep-1)}>Back</Button>
+              )}
               <Button sx={{float: 'right'}} variant={"contained"} onClick={() => setCurrentStep(currentStep+1)}>Next</Button>
             </Stack>
           </Box>
