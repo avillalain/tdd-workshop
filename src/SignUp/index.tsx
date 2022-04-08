@@ -2,19 +2,7 @@ import {Box, Button, Grid, Paper, Stack, TextField, Typography} from '@mui/mater
 import React, {useState} from 'react';
 import {useStyle} from '../styles';
 import {Personal} from './Forms/Personal';
-
-interface StepComponents {
-  children: JSX.Element[];
-  currentStep: number;
-}
-
-const Steps = (props: StepComponents) => {
-  return (
-    <>
-      {props.children[props.currentStep]}
-    </>
-  )
-}
+import {Steps} from '../Steps';
 
 export const SignUp = () => {
   const classes = useStyle();
