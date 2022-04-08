@@ -9,10 +9,11 @@ describe('<SignUp/>', () => {
     render(<SignUp />);
   });
 
-  it('should allow the user to input their personal information', () => {
+  it('should allow the user to input the user organization', async () => {
     const firstname = 'Angel';
     const lastname = 'Villalain';
-    const email = 'some@email.com'
+    const email = 'some@email.com';
+    const organization = 'some organization';
     let field = screen.getByRole('textbox', {name: /First Name/i});
     userEvent.type(field, firstname);
     expect(field.value).toBe(firstname);
@@ -22,6 +23,11 @@ describe('<SignUp/>', () => {
     field = screen.getByRole('textbox', {name: /Email/i});
     userEvent.type(field, email);
     expect(field.value).toBe(email);
+    let button = screen.getByRole('button', {name: /Next/i});
+    userEvent.click(button);
+    field = await screen.findByRole('textbox', {name: /Organization/i});
+    userEvent.type(field, organization);
+    expect(field.value).toBe(organization);
   });
 
 });
