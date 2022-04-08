@@ -1,10 +1,16 @@
-import {render, screen} from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { initialValues, schema} from '../index';
 import {Personal} from './index';
+import {Formik} from 'formik';
 
 describe('<Personal/>', () => {
   beforeEach( () => {
-    render(<Personal />);
+    render(
+      <Formik initialValues={initialValues} validationSchema={schema[0]}>
+        <Personal />
+      </Formik>
+    );
   });
 
   it('should allow the user to input their first name', () => {

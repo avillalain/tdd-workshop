@@ -1,10 +1,16 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Organization} from './index';
+import {Formik} from 'formik';
+import {initialValues, schema} from '../index';
 
 describe('<Organization/>', () => {
   beforeEach( () => {
-    render(<Organization />);
+    render(
+      <Formik initialValues={initialValues} validationSchema={schema[0]}>
+        <Organization />
+      </Formik>
+    );
   });
 
   it('should allow the user to input their organization name', () => {
